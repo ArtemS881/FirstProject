@@ -3,28 +3,21 @@ answers = ['Бесспорно','Предрешено','Никаких сомн�
 print('Привет Мир, я магический шар, и я знаю ответ на любой твой вопрос.')
 print('Как тебя зовут?')
 name = input()  
-zero = 0                                # Ноль для бесконечного цикла 
 print('Привет', name)
 def answer_to_question():               # Функция ответа на вопрос
     print('Задай любой вопрос')
     question = input()
-    while zero < 10:
-        print(random.choice(answers))
-        break
-print(answer_to_question())
+    print(random.choice(answers))
+answer_to_question()
+print('Нужно ответить ещё на вопрос?')
 def yes_no():                           # Функция уточнения второго вопроса
-    print('Нужно ответить ещё на вопрос?')
-    ans_yes_no = input()
-    while zero < 10:
-        if ans_yes_no == 'Да' or ans_yes_no == 'да':
-            print(answer_to_question())
-            print(yes_no())
-            break
-        elif ans_yes_no == 'Нет' or ans_yes_no == 'нет':
-            print('Возвращайся, если возникнут вопросы!')
-            break
-        else:
-            print('Не понял, скажи Да или Нет')
-            print(yes_no())
-            break
-print(yes_no())
+    ans_yes_no = input().lower()
+    if ans_yes_no == 'да':
+        print(answer_to_question())
+        yes_no()
+    elif ans_yes_no == 'нет':
+        print('Возвращайся, если возникнут вопросы!')
+    else:
+        print('Не понял, скажи Да или Нет')
+        yes_no()
+yes_no()
